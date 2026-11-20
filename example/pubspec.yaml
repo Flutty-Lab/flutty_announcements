@@ -1,0 +1,18 @@
+name: flutty_announcements_example
+description: Example app for flutty_announcements.
+publish_to: none
+
+environment:
+  sdk: ">=3.13.0 <4.0.0"
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutty_announcements:
+    path: ../
+
+  material_ui: ^1.11.1
+
+flutter:
+  uses-material-design: true

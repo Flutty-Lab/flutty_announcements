@@ -1,0 +1,31 @@
+name: flutty_announcements
+description: "In-app \"what's new\" announcements: feature highlights shown once per device at launch, gated by the running app's minor version."
+version: 0.1.0
+homepage: https://github.com/Flutty-Lab/flutty_announcements
+repository: https://github.com/Flutty-Lab/flutty_announcements
+issue_tracker: https://github.com/Flutty-Lab/flutty_announcements/issues
+topics:
+  - announcements
+  - whats-new
+  - feature-discovery
+  - onboarding
+  - ui
+
+environment:
+  sdk: ">=3.13.0 <4.0.0"
+  flutter: ">=3.50.0"
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutty_ds: ^0.2.0
+  material_ui: ^1.11.1
+  package_info_plus: ^10.2.0
+  shared_preferences: ^2.5.4
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
+  mocktail: ^1.0.4
