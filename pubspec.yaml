@@ -21,7 +21,6 @@ dependencies:
     sdk: flutter
   flutty_ds: ^0.2.0
   material_ui: ^1.11.1
-  package_info_plus: ^10.2.0
   shared_preferences: ^2.5.4
 
 dev_dependencies:

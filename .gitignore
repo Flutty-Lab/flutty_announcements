@@ -1,3 +1,7 @@
 
 # FVM Version Cache
 .fvm/
+
+# Build artifacts — keeps manual sync_public runs clean
+.dart_tool/
+build/

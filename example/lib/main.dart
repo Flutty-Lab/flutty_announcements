@@ -1,8 +1,11 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutty_announcements/flutty_announcements.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
-void main() {
-  runApp(const ExampleApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final appVersion = (await PackageInfo.fromPlatform()).version;
+  runApp(ExampleApp(appVersion: appVersion));
 }
 
 /// The app's versioned config — `releasedIn` must match the running
@@ -39,16 +42,18 @@ const announcements = <FeatureAnnouncement>[
 ];
 
 class ExampleApp extends StatelessWidget {
-  const ExampleApp({super.key});
+  const ExampleApp({required this.appVersion, super.key});
+
+  final String appVersion;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: FeatureAnnouncementTrigger(
         announcements: announcements,
-        // In a real app, wire the service with your SharedPreferences key and
-        // your FeatureAnnouncementsAnalytics implementation.
-        service: const FeatureAnnouncements(appVersion: '1.0.0'),
+        // In a real app, also wire your SharedPreferences key and your
+        // FeatureAnnouncementsAnalytics implementation here.
+        service: FeatureAnnouncements(appVersion: appVersion),
         onCta: (context, cta) {
           // `cta.payload` is whatever you stored — a route object, an id…
           Navigator.of(context)

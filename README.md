@@ -53,9 +53,12 @@ const featureAnnouncements = <FeatureAnnouncement>[
 ### 2. Mount the trigger on the authenticated root
 
 ```dart
+final version = (await PackageInfo.fromPlatform()).version; // app-side dep
+
 FeatureAnnouncementTrigger(
   announcements: featureAnnouncements,
   service: FeatureAnnouncements(
+    appVersion: version,
     store: SharedPreferencesAnnouncementStore(key: 'my_app_announcements_seen'),
     analytics: MyAnnouncementsAnalytics(),   // optional
   ),

@@ -17,11 +17,12 @@ void main() {
   late MockStore store;
   late MockAnalytics analytics;
 
-  FeatureAnnouncements service({String? appVersion}) => FeatureAnnouncements(
-    store: store,
-    analytics: analytics,
-    appVersion: appVersion,
-  );
+  FeatureAnnouncements service({required String appVersion}) =>
+      FeatureAnnouncements(
+        store: store,
+        analytics: analytics,
+        appVersion: appVersion,
+      );
 
   setUpAll(() {
     registerFallbackValue(FeatureAnnouncementClose.dismiss);

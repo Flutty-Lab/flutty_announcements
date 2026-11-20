@@ -15,7 +15,7 @@ class FeatureAnnouncementTrigger extends StatefulWidget {
   const FeatureAnnouncementTrigger({
     required this.child,
     required this.announcements,
-    this.service = const FeatureAnnouncements(),
+    required this.service,
     this.onCta,
     this.overline,
     this.closeLabel,
@@ -27,8 +27,8 @@ class FeatureAnnouncementTrigger extends StatefulWidget {
   /// The versioned config — injectable in tests.
   final List<FeatureAnnouncement> announcements;
 
-  /// Service deciding eligibility and tracking seen ids — injectable in
-  /// tests, defaults to a SharedPreferences store with no analytics.
+  /// Service deciding eligibility and tracking seen ids — the app provides
+  /// its version, store key and analytics implementation.
   final FeatureAnnouncements service;
 
   /// Called after the sheet is closed via its CTA — typically pushes a route
