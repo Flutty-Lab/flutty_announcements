@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:material_ui/material_ui.dart';
+import 'package:flutty_announcements/src/material.dart';
 import 'package:flutty_announcements/src/feature_announcement_sheet.dart';
 import 'package:flutty_announcements/src/feature_announcements.dart';
 import 'package:flutty_announcements/src/models.dart';

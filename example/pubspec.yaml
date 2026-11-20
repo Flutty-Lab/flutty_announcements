@@ -13,7 +13,6 @@ dependencies:
   flutty_announcements:
     path: ../
 
-  material_ui: ^1.11.1
   package_info_plus: ^10.2.0
 
 flutter:

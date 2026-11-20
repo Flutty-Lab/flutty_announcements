@@ -1,6 +1,11 @@
-import 'package:material_ui/material_ui.dart';
-import 'package:flutty_ds/dimens.dart';
+import 'package:flutty_announcements/src/material.dart';
 import 'package:flutty_announcements/src/models.dart';
+
+// Spacing mirroring flutty_ds' Dimens values — kept internal so the package
+// forces no design-system version on its consumers.
+const _doubleSpacing = 16.0;
+const _standardSpacing = 8.0;
+const _halfSpacing = 4.0;
 
 const _defaultOverline = LocalizedText(
   en: 'New in this version',
@@ -57,18 +62,18 @@ class FeatureAnnouncementSheet extends StatelessWidget {
     return SafeArea(
       child: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(
-            Dimens.doubleSpacing,
+          padding: const EdgeInsets.fromLTRB(
+            _doubleSpacing,
             0,
-            Dimens.doubleSpacing,
-            Dimens.doubleSpacing,
+            _doubleSpacing,
+            _doubleSpacing,
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Center(child: _IconBadge(icon: announcement.icon)),
-              SizedBox(height: Dimens.doubleSpacing),
+              const SizedBox(height: _doubleSpacing),
               Text(
                 overline.resolve(locale),
                 textAlign: TextAlign.center,
@@ -83,18 +88,18 @@ class FeatureAnnouncementSheet extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: theme.textTheme.headlineSmall,
               ),
-              SizedBox(height: Dimens.standardSpacing),
+              const SizedBox(height: _standardSpacing),
               Text(
                 announcement.body.resolve(locale),
                 textAlign: TextAlign.center,
               ),
               if (announcement.preview != null) ...[
-                SizedBox(height: Dimens.doubleSpacing),
+                const SizedBox(height: _doubleSpacing),
                 announcement.preview!,
               ],
               for (final bullet in announcement.bullets)
                 _Bullet(text: bullet.resolve(locale)),
-              SizedBox(height: Dimens.doubleSpacing),
+              const SizedBox(height: _doubleSpacing),
               if (announcement.cta != null)
                 FilledButton(
                   onPressed: () =>
@@ -125,7 +130,7 @@ class _IconBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
     return Container(
-      padding: EdgeInsets.all(Dimens.doubleSpacing),
+      padding: const EdgeInsets.all(_doubleSpacing),
       decoration: BoxDecoration(
         color: colors.primaryContainer,
         shape: BoxShape.circle,
@@ -143,7 +148,7 @@ class _Bullet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: Dimens.standardSpacing),
+      padding: const EdgeInsets.only(top: _standardSpacing),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -152,7 +157,7 @@ class _Bullet extends StatelessWidget {
             size: 18,
             color: Theme.of(context).colorScheme.primary,
           ),
-          SizedBox(width: Dimens.halfSpacing),
+          const SizedBox(width: _halfSpacing),
           Expanded(child: Text(text)),
         ],
       ),

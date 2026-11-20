@@ -1,4 +1,4 @@
-import 'package:material_ui/material_ui.dart';
+import 'package:flutty_announcements/src/material.dart';
 
 /// Text localized inline in the announcements config: fr and en live next to
 /// the announcement itself rather than in arb keys — all the copy of an

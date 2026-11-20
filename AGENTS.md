@@ -30,6 +30,11 @@ Extracted and generalized from Pocket Money.
   on the device (Pocket Money's parent/beneficiary split was dropped).
 - The package stays backend-agnostic: no Firebase, no GetIt, no auto_route
   dependency — apps wire DI, analytics and routing themselves.
+- Widgets import `package:flutter/material.dart`, **not** `material_ui`:
+  it resolves the consumer app's `Theme` on both Flutter eras (framework
+  Material on 3.47 — where `material_ui`'s own `Theme` would see nothing —
+  and the re-exported `material_ui` on 3.50+). Spacing constants mirror
+  `flutty_ds`' `Dimens` values, internalized to avoid a version coupling.
 - `cta.payload` is opaque (`Object?`) — apps typically store a route object
   and handle it in the trigger's `onCta`; the package never navigates.
 - The seen-ids store is device-local by contract — do not add a remote sync.

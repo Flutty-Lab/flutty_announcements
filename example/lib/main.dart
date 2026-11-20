@@ -1,4 +1,5 @@
-import 'package:material_ui/material_ui.dart';
+// ignore_for_file: deprecated_member_use
+import 'package:flutter/material.dart';
 import 'package:flutty_announcements/flutty_announcements.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
